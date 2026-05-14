@@ -36,7 +36,6 @@
       transition: background 0.35s, color 0.35s;
     }
 
-   
     .page {
       flex: 1;
       overflow-y: auto;
@@ -46,7 +45,6 @@
       padding-bottom: calc(var(--nav-h) + 10px);
     }
 
-    
     .will-animate {
       opacity: 0;
       transform: translateY(22px);
@@ -65,7 +63,6 @@
     .theme-btn svg { width: 20px; height: 20px; fill: var(--muted); transition: fill 0.3s; }
     .theme-btn:hover svg { fill: var(--accent); }
 
-    
     .contact-header { padding: 50px 28px 0; position: relative; }
     .contact-wm {
       font-family: 'Syne', sans-serif; font-weight: 800;
@@ -82,7 +79,6 @@
     .contact-title .white { color: var(--text); display: block; }
     .contact-title .green { color: var(--accent); display: block; }
 
-    
     .contact-body { padding: 32px 28px 0; }
     .contact-body h2 {
       font-family: 'Syne', sans-serif;
@@ -91,7 +87,6 @@
     }
     .contact-body > p { font-size: 0.97rem; line-height: 1.85; color: var(--muted); margin-bottom: 28px; }
 
-    
     .info-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px; }
     .info-item { display: flex; align-items: flex-start; gap: 14px; }
     .info-icon {
@@ -102,20 +97,19 @@
     .info-text strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
     .info-text span { font-size: 0.85rem; color: var(--muted); }
 
-    
     .contact-social { display: flex; gap: 12px; margin-bottom: 32px; }
     .c-pill {
       width: 44px; height: 44px; border-radius: 50%;
       background: var(--surface); border: none; cursor: pointer;
       display: grid; place-items: center;
       transition: background 0.2s, transform 0.2s;
+      text-decoration: none;
     }
     .c-pill svg { width: 18px; height: 18px; fill: var(--muted); transition: fill 0.2s; }
     .c-pill:hover { background: rgba(61,214,140,0.15); transform: translateY(-2px); }
     .c-pill:hover svg { fill: var(--accent); }
     .c-pill:active { transform: scale(0.9); }
 
-  
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .contact-form input,
     .contact-form textarea {
@@ -143,7 +137,6 @@
     .send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(61,214,140,0.35); }
     .send-btn:active { transform: scale(0.97); }
 
-    
     .bottom-nav {
       height: var(--nav-h);
       background: var(--surface);
@@ -173,7 +166,6 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18V4a8 8 0 0 1 0 16z"/></svg>
   </button>
 
- 
   <main class="page">
     <div class="contact-header will-animate">
       <div class="contact-wm">CONTACT</div>
@@ -235,28 +227,23 @@
         </div>
       </div>
 
-      
+      <!-- Social links — all use <a> tags so they navigate properly -->
       <div class="contact-social will-animate">
-        <button class="c-pill" aria-label="Facebook" href="https://www.facebook.com/share/17tm2seh4C/" 
-   target="_blank">
+        <a class="c-pill" aria-label="Facebook"
+           href="https://www.facebook.com/share/17tm2seh4C/" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </button>
-       <a class="c-pill" 
-   aria-label="LinkedIn" 
-   href="https://www.linkedin.com/in/anagha-praveen-b03384242?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-   target="_blank">
-
-  <svg viewBox="0 0 24 24">
-    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.53-1 1.82-2.2 3.75-2.2C19.5 8 24 10.42 24 16.1V24h-4v-7c0-1.67-.03-3.82-2.33-3.82-2.34 0-2.7 1.82-2.7 3.7V24h-4V8z"/>
-  </svg>
-
-</a>
-        <button class="c-pill" aria-label="GitHub">
+        </a>
+        <a class="c-pill" aria-label="LinkedIn"
+           href="https://www.linkedin.com/in/anagha-praveen-b03384242?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+           target="_blank">
+          <svg viewBox="0 0 24 24">
+            <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.48 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.8v2.2h.1c.53-1 1.82-2.2 3.75-2.2C19.5 8 24 10.42 24 16.1V24h-4v-7c0-1.67-.03-3.82-2.33-3.82-2.34 0-2.7 1.82-2.7 3.7V24h-4V8z"/>
+          </svg>
+        </a>
+        <a class="c-pill" aria-label="GitHub"
+           href="https://github.com/anaghapraveen2007" target="_blank">
           <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.13-4.56-5.03 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.29.1-2.69 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 7.93c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.43.1 2.69.64.71 1.03 1.62 1.03 2.73 0 3.91-2.34 4.77-4.57 5.02.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.19 10.19 0 0 0 22 12.19C22 6.58 17.52 2 12 2z"/></svg>
-        </button>
-        <button class="c-pill" aria-label="YouTube">
-          <svg viewBox="0 0 24 24"><path d="M21.58 7.19a2.76 2.76 0 0 0-1.94-1.95C18.01 5 12 5 12 5s-6.01 0-7.64.24a2.76 2.76 0 0 0-1.94 1.95A29 29 0 0 0 2.18 12a29 29 0 0 0 .24 4.81 2.76 2.76 0 0 0 1.94 1.95C5.99 19 12 19 12 19s6.01 0 7.64-.24a2.76 2.76 0 0 0 1.94-1.95A29 29 0 0 0 21.82 12a29 29 0 0 0-.24-4.81zM10 15V9l5.2 3L10 15z"/></svg>
-        </button>
+        </a>
       </div>
 
       <!-- Form -->
@@ -265,7 +252,7 @@
         <input type="email" placeholder="Your Email" />
         <input type="text" placeholder="Enter Subject" />
         <textarea placeholder="Message here..."></textarea>
-        <button class="send-btn" onclick="window.location.href='index.html'">Send Message</button>
+        <button class="send-btn" id="sendBtn">Send Message</button>
       </div>
     </div>
   </main>
@@ -283,18 +270,22 @@
   </nav>
 
   <script>
-  document.querySelectorAll('.will-animate').forEach((el, i) => {
-    setTimeout(() => el.classList.add('visible'), 80 + i * 110);
-  });
+    /* Entrance animations */
+    document.querySelectorAll('.will-animate').forEach(function(el, i) {
+      setTimeout(function() { el.classList.add('visible'); }, 80 + i * 110);
+    });
 
-  document.getElementById('themeToggle').addEventListener('click', () => {
-    const html = document.documentElement;
-    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-  });                            // ← closing }); was missing here
+    /* Theme toggle */
+    document.getElementById('themeToggle').addEventListener('click', function() {
+      var html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    });
 
-  document.querySelector('.send-btn').addEventListener('click', function () {
-    window.location.href = 'index.html';
-  });
-</script>
+    /* Send button */
+    document.getElementById('sendBtn').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
+
 </body>
 </html>
