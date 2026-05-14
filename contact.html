@@ -36,7 +36,7 @@
       transition: background 0.35s, color 0.35s;
     }
 
-    /* ── Page ── */
+   
     .page {
       flex: 1;
       overflow-y: auto;
@@ -46,7 +46,7 @@
       padding-bottom: calc(var(--nav-h) + 10px);
     }
 
-    /* ── Animate ── */
+    
     .will-animate {
       opacity: 0;
       transform: translateY(22px);
@@ -54,7 +54,6 @@
     }
     .will-animate.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Theme Toggle ── */
     .theme-btn {
       position: fixed; top: 22px; right: 22px; z-index: 100;
       width: 46px; height: 46px; border-radius: 50%;
@@ -66,7 +65,7 @@
     .theme-btn svg { width: 20px; height: 20px; fill: var(--muted); transition: fill 0.3s; }
     .theme-btn:hover svg { fill: var(--accent); }
 
-    /* ── Contact Header ── */
+    
     .contact-header { padding: 50px 28px 0; position: relative; }
     .contact-wm {
       font-family: 'Syne', sans-serif; font-weight: 800;
@@ -83,7 +82,7 @@
     .contact-title .white { color: var(--text); display: block; }
     .contact-title .green { color: var(--accent); display: block; }
 
-    /* ── Contact Body ── */
+    
     .contact-body { padding: 32px 28px 0; }
     .contact-body h2 {
       font-family: 'Syne', sans-serif;
@@ -92,7 +91,7 @@
     }
     .contact-body > p { font-size: 0.97rem; line-height: 1.85; color: var(--muted); margin-bottom: 28px; }
 
-    /* ── Info List ── */
+    
     .info-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 30px; }
     .info-item { display: flex; align-items: flex-start; gap: 14px; }
     .info-icon {
@@ -103,7 +102,7 @@
     .info-text strong { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
     .info-text span { font-size: 0.85rem; color: var(--muted); }
 
-    /* ── Social Pills ── */
+    
     .contact-social { display: flex; gap: 12px; margin-bottom: 32px; }
     .c-pill {
       width: 44px; height: 44px; border-radius: 50%;
@@ -116,7 +115,7 @@
     .c-pill:hover svg { fill: var(--accent); }
     .c-pill:active { transform: scale(0.9); }
 
-    /* ── Form ── */
+  
     .contact-form { display: flex; flex-direction: column; gap: 14px; }
     .contact-form input,
     .contact-form textarea {
@@ -144,7 +143,7 @@
     .send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(61,214,140,0.35); }
     .send-btn:active { transform: scale(0.97); }
 
-    /* ── Bottom Nav ── */
+    
     .bottom-nav {
       height: var(--nav-h);
       background: var(--surface);
@@ -174,7 +173,7 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18V4a8 8 0 0 1 0 16z"/></svg>
   </button>
 
-  <!-- CONTACT PAGE -->
+ 
   <main class="page">
     <div class="contact-header will-animate">
       <div class="contact-wm">CONTACT</div>
@@ -204,7 +203,7 @@
           </div>
           <div class="info-text">
             <strong>Email</strong>
-            <span>anagha@example.com</span>
+            <span>anaghapraveen720@gmail.com</span>
           </div>
         </div>
         <div class="info-item">
@@ -213,7 +212,7 @@
           </div>
           <div class="info-text">
             <strong>Education</strong>
-            <span>B.Tech Computer Science</span>
+            <span>Bvoc in Software Development</span>
           </div>
         </div>
         <div class="info-item">
@@ -222,7 +221,7 @@
           </div>
           <div class="info-text">
             <strong>Mobile Number</strong>
-            <span>+91 00000 00000</span>
+            <span>+91 98957 92600</span>
           </div>
         </div>
         <div class="info-item">
@@ -231,7 +230,7 @@
           </div>
           <div class="info-text">
             <strong>Languages</strong>
-            <span>Malayalam, English, Hindi, Tamil, French</span>
+            <span>Malayalam, English, Hindi</span>
           </div>
         </div>
       </div>
@@ -263,7 +262,6 @@
     </div>
   </main>
 
-  <!-- BOTTOM NAV -->
   <nav class="bottom-nav">
     <a href="home.html" class="nav-btn" aria-label="Home">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
@@ -277,12 +275,12 @@
   </nav>
 
   <script>
-    // Animate on load
+  
     document.querySelectorAll('.will-animate').forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), 80 + i * 110);
     });
 
-    // Theme toggle
+    
     document.getElementById('themeToggle').addEventListener('click', () => {
       const html = document.documentElement;
       html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
