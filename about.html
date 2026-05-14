@@ -288,7 +288,7 @@
       </div>
     </div>
 
-    <!-- PROJECT CARD -->
+    
     <div class="projects-section will-animate">
       <h2>My Projects</h2>
 
@@ -339,19 +339,6 @@
     });
 
    
-    document.getElementById('photoInput').addEventListener('change', function () {
-      const file = this.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const img = document.getElementById('profilePhoto');
-        img.src = e.target.result;
-        img.style.display = 'block';
-        document.getElementById('photoPlaceholder').style.display = 'none';
-        document.getElementById('photoEditBtn').style.display = 'flex';
-      };
-      reader.readAsDataURL(file);
-    });
   </script>
 </body>
 </html>
