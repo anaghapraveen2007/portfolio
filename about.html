@@ -87,61 +87,46 @@
 
     .wm-stats { padding: 0 28px; margin-top: -0.3em; }
 
-    .photo-section {
-      padding: 32px 28px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0;
-    }
-    .photo-wrapper {
-      position: relative;
-      width: 155px; height: 155px;
-      margin-bottom: 16px;
-    }
-    .profile-photo {
-      width: 155px; height: 155px;
-      border-radius: 22px;
-      object-fit: cover;
-      border: 3.5px solid var(--accent);
-      display: block;
-    }
-    .photo-placeholder {
-      width: 155px; height: 155px;
-      border-radius: 22px;
-      background: var(--surface);
-      border: 2.5px dashed var(--muted);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: border-color 0.25s, background 0.25s;
-    }
-    .photo-placeholder:hover { border-color: var(--accent); background: var(--btn-bg); }
-    .photo-placeholder svg { width: 28px; height: 28px; fill: var(--muted); margin-bottom: 6px; transition: fill 0.25s; }
-    .photo-placeholder:hover svg { fill: var(--accent); }
-    .photo-placeholder span { font-size: 0.7rem; color: var(--muted); text-align: center; line-height: 1.4; }
-    #photoInput { display: none; }
-    .photo-edit-btn {
-      position: absolute;
-      bottom: -6px; right: -6px;
-      width: 30px; height: 30px; border-radius: 8px;
-      background: var(--accent); border: 2.5px solid var(--bg);
-      cursor: pointer; display: none;
-      align-items: center; justify-content: center;
-    }
-    .photo-edit-btn svg { width: 13px; height: 13px; fill: #0f1020; }
-    .photo-intro .name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.45rem; font-weight: 800;
-      color: var(--text); margin-bottom: 6px;
-    }
-    .photo-intro .tagline {
-      font-size: 0.88rem; color: var(--muted);
-      line-height: 1.6;
-    }
+    
+    .photo-section{
+  padding: 30px 20px 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.photo-wrapper{
+  width:180px;
+  height:220px;
+}
+
+.profile-photo{
+  width:180px;
+  height:220px;
+  border-radius:40px;
+}
+.profile-photo:hover{
+  transform:scale(1.05);
+}
+
+.photo-intro{
+  margin-top:18px;
+}
+
+.photo-intro .name{
+  font-family:'Syne',sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--text);
+}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0px);}
+}
 
     .about-info { padding: 28px 28px 0; }
     .about-info h2 {
@@ -264,16 +249,22 @@
 
     
     <div class="photo-section will-animate">
-      <div class="photo-wrapper" id="photoWrapper">
-        <img src="">
-        
-       
-      <div class="photo-intro">
-        <div class="name">Anagha Praveen<br></div>
-       
-      </div>
-    </div>
 
+  <div class="photo-wrapper">
+    <img 
+      src="profile.jpeg" 
+      alt="Anagha Praveen"
+      class="profile-photo"
+    >
+  </div>
+
+  <div class="photo-intro">
+    <div class="name">Anagha Praveen</div>
+  </div>
+
+</div>
+<br>
+<br>
     <div class="wm-stats wm-word will-animate">STATS</div>
 
     <div class="about-info">
