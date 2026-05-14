@@ -204,7 +204,7 @@
           </div>
           <div class="info-text">
             <strong>Education</strong>
-            <span>Bvoc in Software Development</span>
+            <span>Bvoc in Software Development @ farook college</span>
           </div>
         </div>
         <div class="info-item">
@@ -227,7 +227,7 @@
         </div>
       </div>
 
-      <!-- Social links — all use <a> tags so they navigate properly -->
+      
       <div class="contact-social will-animate">
         <a class="c-pill" aria-label="Facebook"
            href="https://www.facebook.com/share/17tm2seh4C/" target="_blank">
@@ -246,7 +246,7 @@
         </a>
       </div>
 
-      <!-- Form -->
+     
       <div class="contact-form will-animate">
         <input type="text" placeholder="Your Name" />
         <input type="email" placeholder="Your Email" />
@@ -270,18 +270,18 @@
   </nav>
 
   <script>
-    /* Entrance animations */
+    
     document.querySelectorAll('.will-animate').forEach(function(el, i) {
       setTimeout(function() { el.classList.add('visible'); }, 80 + i * 110);
     });
 
-    /* Theme toggle */
+    
     document.getElementById('themeToggle').addEventListener('click', function() {
       var html = document.documentElement;
       html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
     });
 
-    /* Send button */
+    
     document.getElementById('sendBtn').addEventListener('click', function() {
       window.location.href = 'index.html';
     });
