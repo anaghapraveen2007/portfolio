@@ -36,7 +36,7 @@
       transition: background 0.35s, color 0.35s;
     }
 
-    /* ── Page ── */
+    
     .page {
       flex: 1;
       overflow-y: auto;
@@ -46,7 +46,7 @@
       padding-bottom: calc(var(--nav-h) + 10px);
     }
 
-    /* ── Animate ── */
+   
     .will-animate {
       opacity: 0;
       transform: translateY(22px);
@@ -54,7 +54,7 @@
     }
     .will-animate.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── Theme Toggle ── */
+   
     .theme-btn {
       position: fixed; top: 22px; right: 22px; z-index: 100;
       width: 46px; height: 46px; border-radius: 50%;
@@ -66,7 +66,7 @@
     .theme-btn svg { width: 20px; height: 20px; fill: var(--muted); transition: fill 0.3s; }
     .theme-btn:hover svg { fill: var(--accent); }
 
-    /* ── Watermark ── */
+   
     .wm-word {
       font-family: 'Syne', sans-serif; font-weight: 800;
       font-size: clamp(4rem, 22vw, 8rem); color: var(--text);
@@ -76,7 +76,7 @@
     .about-watermark { padding: 56px 28px 0; }
     .about-watermark .wm-word { margin-bottom: -0.15em; }
 
-    /* ── Heading ── */
+    
     .about-heading-wrap {
       position: relative; margin-top: -2.4em;
       padding: 0 28px; z-index: 2;
@@ -90,10 +90,10 @@
     .about-heading .white { color: var(--text); }
     .about-heading .green { color: var(--accent); }
 
-    /* ── Stats watermark ── */
+    
     .wm-stats { padding: 0 28px; margin-top: -0.3em; }
 
-    /* ── Body text ── */
+   
     .about-info { padding: 36px 28px 0; }
     .about-info h2 {
       font-family: 'Syne', sans-serif;
@@ -102,7 +102,7 @@
     }
     .about-info p { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 22px; }
 
-    /* ── Stat Cards ── */
+    
     .stats-row {
       display: grid; grid-template-columns: 1fr 1fr 1fr;
       gap: 14px; margin-top: 10px; padding: 0 28px 28px;
@@ -118,7 +118,7 @@
     }
     .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
 
-    /* ── Bottom Nav ── */
+    
     .bottom-nav {
       height: var(--nav-h);
       background: var(--surface);
@@ -148,7 +148,7 @@
     <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18V4a8 8 0 0 1 0 16z"/></svg>
   </button>
 
-  <!-- ABOUT PAGE -->
+  
   <main class="page">
     <div class="about-watermark will-animate">
       <div class="wm-word">MY</div>
@@ -181,7 +181,7 @@
     </div>
   </main>
 
-  <!-- BOTTOM NAV -->
+  
   <nav class="bottom-nav">
     <a href="home.html" class="nav-btn" aria-label="Home">
       <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
