@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anagha Praveen – About</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #14151f;
+      --surface: #1e2030;
+      --text:    #ffffff;
+      --muted:   #8890b0;
+      --accent:  #3dd68c;
+      --btn-bg:  #2a2d40;
+      --nav-h:   88px;
+    }
+    [data-theme="light"] {
+      --bg:      #f0f2fb;
+      --surface: #ffffff;
+      --text:    #0f1020;
+      --muted:   #555a7a;
+      --btn-bg:  #dde0f0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: background 0.35s, color 0.35s;
+    }
+
+    .page {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: calc(var(--nav-h) + 10px);
+    }
+
+    .will-animate {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .will-animate.visible { opacity: 1; transform: translateY(0); }
+
+    .theme-btn {
+      position: fixed; top: 22px; right: 22px; z-index: 100;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--btn-bg); border: none; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .theme-btn:hover { transform: scale(1.08); background: var(--surface); }
+    .theme-btn svg { width: 20px; height: 20px; fill: var(--muted); transition: fill 0.3s; }
+    .theme-btn:hover svg { fill: var(--accent); }
+
+    .wm-word {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(4rem, 22vw, 8rem); color: var(--text);
+      opacity: 0.06; line-height: 1;
+      user-select: none; pointer-events: none; letter-spacing: -0.02em;
+    }
+    .about-watermark { padding: 56px 28px 0; }
+    .about-watermark .wm-word { margin-bottom: -0.15em; }
+
+    .about-heading-wrap {
+      position: relative; margin-top: -2.4em;
+      padding: 0 28px; z-index: 2;
+    }
+    .about-heading {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 11vw, 4.5rem); font-weight: 800;
+      line-height: 1.0; display: flex;
+      align-items: baseline; gap: 0.25em; flex-wrap: wrap;
+    }
+    .about-heading .white { color: var(--text); }
+    .about-heading .green { color: var(--accent); }
+
+    .wm-stats { padding: 0 28px; margin-top: -0.3em; }
+
+    
+    .photo-section{
+  padding: 30px 20px 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.photo-wrapper{
+  width:180px;
+  height:220px;
+}
+
+.profile-photo{
+  width:180px;
+  height:220px;
+  border-radius:40px;
+}
+.profile-photo:hover{
+  transform:scale(1.05);
+}
+
+.photo-intro{
+  margin-top:18px;
+}
+
+.photo-intro .name{
+  font-family:'Syne',sans-serif;
+  font-size:1.3rem;
+  font-weight:800;
+  color:var(--text);
+}
+
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0px);}
+}
+
+    .about-info { padding: 28px 28px 0; }
+    .about-info h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 7vw, 2.2rem); font-weight: 800;
+      text-transform: uppercase; line-height: 1.15; margin-bottom: 22px;
+    }
+    .about-info p { font-size: 1rem; line-height: 1.9; color: var(--muted); margin-bottom: 22px; }
+
+    .stats-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px; margin-top: 10px; padding: 0 28px 28px;
+    }
+    .stat-card {
+      background: var(--surface); border-radius: 16px;
+      padding: 20px 16px; text-align: center; transition: transform 0.2s;
+    }
+    .stat-card:hover { transform: translateY(-3px); }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem; font-weight: 800; color: var(--accent);
+    }
+    .stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 4px; font-weight: 500; }
+
+    
+    .projects-section { padding: 4px 28px 28px; }
+    .projects-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.5rem, 7vw, 2.2rem); font-weight: 800;
+      text-transform: uppercase; line-height: 1.15; margin-bottom: 16px;
+    }
+    .project-card {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 20px 20px 16px;
+      border: 1px solid rgba(61,214,140,0.18);
+      transition: transform 0.2s, border-color 0.25s;
+    }
+    .project-card:hover { transform: translateY(-3px); border-color: rgba(61,214,140,0.45); }
+    .project-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .project-tag {
+      font-size: 0.7rem; font-weight: 500;
+      background: rgba(61,214,140,0.12);
+      color: var(--accent);
+      border-radius: 20px;
+      padding: 3px 10px;
+      white-space: nowrap;
+    }
+    .project-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--text); margin-bottom: 6px;
+    }
+    .project-desc {
+      font-size: 0.9rem; line-height: 1.7;
+      color: var(--muted); margin-bottom: 16px;
+    }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid rgba(61,214,140,0.35);
+      border-radius: 20px;
+      padding: 6px 16px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .project-link:hover { background: rgba(61,214,140,0.1); border-color: var(--accent); }
+    .project-link svg { width: 14px; height: 14px; fill: var(--accent); }
+
+    .bottom-nav {
+      height: var(--nav-h);
+      background: var(--surface);
+      border-top: 1px solid rgba(128,128,180,0.08);
+      display: flex; align-items: center; justify-content: space-around;
+      padding: 0 14px 10px; flex-shrink: 0;
+      transition: background 0.35s;
+    }
+    .nav-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--btn-bg); border: none; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.25s, transform 0.2s;
+      text-decoration: none;
+    }
+    .nav-btn svg { width: 22px; height: 22px; fill: var(--muted); transition: fill 0.25s; }
+    .nav-btn.active { background: var(--accent); }
+    .nav-btn.active svg { fill: #0f1020; }
+    .nav-btn:not(.active):hover { background: rgba(61,214,140,0.12); }
+    .nav-btn:not(.active):hover svg { fill: var(--accent); }
+    .nav-btn:active { transform: scale(0.88); }
+  </style>
+</head>
+<body>
+
+  <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18V4a8 8 0 0 1 0 16z"/></svg>
+  </button>
+
+  <main class="page">
+
+    <div class="about-watermark will-animate">
+      <div class="wm-word">MY</div>
+    </div>
+    <div class="about-heading-wrap will-animate">
+      <h1 class="about-heading">
+        <span class="white">ABOUT</span>
+        <span class="green">ME</span>
+      </h1>
+    </div>
+
+    
+    <div class="photo-section will-animate">
+
+  <div class="photo-wrapper">
+    <img 
+      src="profile.jpeg" 
+      alt="Anagha Praveen"
+      class="profile-photo"
+    >
+  </div>
+
+  <div class="photo-intro">
+    <div class="name">Anagha Praveen</div>
+  </div>
+
+</div>
+<br>
+<br>
+    <div class="wm-stats wm-word will-animate">STATS</div>
+
+    <div class="about-info">
+      <h2 class="will-animate"><br>About Me</h2>
+      <p class="will-animate">I'm Anagha Praveen, an aspiring software developer with a passion for building meaningful digital experiences. I enjoy turning complex problems into simple, elegant solutions through code.</p>
+      <p class="will-animate">Currently exploring full-stack development, I love learning new technologies and applying them to real-world projects. I believe in writing clean, readable code and continuously growing as a developer.</p>
+    </div>
+
+    <div class="stats-row will-animate">
+      <div class="stat-card">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Languages Known</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years Learning</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Dedication</div>
+      </div>
+    </div>
+
+    <!-- PROJECT CARD -->
+    <div class="projects-section will-animate">
+      <h2>My Projects</h2>
+
+    
+      <div class="project-card">
+        <div class="project-card-top">
+          <div>
+            <div class="project-name">study planner</div>
+          </div>
+          <span class="project-tag">Web App</span>
+        </div>
+        <p class="project-desc">
+         The project is done using Python,HTML,CSS.<br> It helps in organizing study task and set priority.
+        </p>
+        <a class="project-link" href="https://anaghapraveen2007.github.io/studyplannerog/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42L17.59 5H14V3zm-1 2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8h-2v8H5V7h8V5z"/></svg>
+          View Project
+        </a>
+      </div>
+
+      
+    </div>
+
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="index.html" class="nav-btn" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+    <a href="about.html" class="nav-btn active" aria-label="About">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </a>
+    <a href="contact.html" class="nav-btn" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+  </nav>
+
+  <script>
+    
+    document.querySelectorAll('.will-animate').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 80 + i * 110);
+    });
+
+    
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    });
+
+   
+    document.getElementById('photoInput').addEventListener('change', function () {
+      const file = this.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = document.getElementById('profilePhoto');
+        img.src = e.target.result;
+        img.style.display = 'block';
+        document.getElementById('photoPlaceholder').style.display = 'none';
+        document.getElementById('photoEditBtn').style.display = 'flex';
+      };
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

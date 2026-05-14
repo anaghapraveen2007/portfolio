@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anagha Praveen – Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #14151f;
+      --surface: #1e2030;
+      --text:    #ffffff;
+      --muted:   #8890b0;
+      --accent:  #3dd68c;
+      --btn-bg:  #2a2d40;
+      --nav-h:   88px;
+    }
+    [data-theme="light"] {
+      --bg:      #f0f2fb;
+      --surface: #ffffff;
+      --text:    #0f1020;
+      --muted:   #555a7a;
+      --btn-bg:  #dde0f0;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: background 0.35s, color 0.35s;
+    }
+
+    
+    .page {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 30px 20px;
+      justify-content: center;
+    }
+
+    
+    .will-animate {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .will-animate.visible { opacity: 1; transform: translateY(0); }
+
+    
+    .theme-btn {
+      position: fixed; top: 22px; right: 22px; z-index: 100;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--btn-bg); border: none; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .theme-btn:hover { transform: scale(1.08); background: var(--surface); }
+    .theme-btn svg { width: 20px; height: 20px; fill: var(--muted); transition: fill 0.3s; }
+    .theme-btn:hover svg { fill: var(--accent); }
+
+    .hero-tag {
+      font-size: 0.72rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .hero-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 13vw, 5.5rem); font-weight: 800; line-height: 1.04;
+    }
+    .hero-title .hi   { color: var(--text); display: block; }
+    .hero-title .name { color: var(--accent); display: block; }
+    .hero-title .role { color: var(--text); display: block; }
+    .cursor {
+      display: inline-block; width: 4px; height: 0.85em;
+      background: var(--accent); border-radius: 2px;
+      margin-left: 4px; vertical-align: middle;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    .hero-desc {
+      margin-top: 26px; font-size: 0.98rem;
+      line-height: 1.85; color: var(--muted); max-width: 420px;
+    }
+    .hero-cta  { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    
+    .btn {
+      padding: 13px 28px; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.88rem; font-weight: 500;
+      cursor: pointer; border: none;
+      transition: transform 0.2s, box-shadow 0.25s, background 0.25s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-primary { background: var(--accent); color: #0f1020; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(61,214,140,0.35); }
+    .btn-primary:active { transform: scale(0.96); }
+    .btn-secondary { background: var(--btn-bg); color: var(--text); }
+    .btn-secondary:hover { transform: translateY(-2px); background: var(--surface); }
+    .btn-secondary:active { transform: scale(0.96); }
+
+    
+    .social-row { margin-top: 30px; display: flex; gap: 10px; }
+    .social-pill {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--btn-bg); border: none; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .social-pill svg { width: 16px; height: 16px; fill: var(--muted); transition: fill 0.2s; }
+    .social-pill:hover { background: rgba(61,214,140,0.15); transform: translateY(-2px); }
+    .social-pill:hover svg { fill: var(--accent); }
+    .social-pill:active { transform: scale(0.9); }
+
+    
+    .bottom-nav {
+      height: var(--nav-h);
+      background: var(--surface);
+      border-top: 1px solid rgba(128,128,180,0.08);
+      display: flex; align-items: center; justify-content: space-around;
+      padding: 0 14px 10px; flex-shrink: 0;
+      transition: background 0.35s;
+    }
+    .nav-btn {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--btn-bg); border: none; cursor: pointer;
+      display: grid; place-items: center;
+      transition: background 0.25s, transform 0.2s;
+      text-decoration: none;
+    }
+    .nav-btn svg { width: 22px; height: 22px; fill: var(--muted); transition: fill 0.25s; }
+    .nav-btn.active { background: var(--accent); }
+    .nav-btn.active svg { fill: #0f1020; }
+    .nav-btn:not(.active):hover { background: rgba(61,214,140,0.12); }
+    .nav-btn:not(.active):hover svg { fill: var(--accent); }
+    .nav-btn:active { transform: scale(0.88); }
+  </style>
+</head>
+<body>
+
+  <button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+    <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 18V4a8 8 0 0 1 0 16z"/></svg>
+  </button>
+
+  
+  <main class="page">
+    <p class="hero-tag will-animate">Portfolio · 2025</p>
+    <h1 class="hero-title will-animate">
+      <span class="hi">Hi, I'm</span>
+      <span class="name">Anagha<br>Praveen.</span>
+      <span class="role">Aspiring Software<br>Developer.<span class="cursor"></span></span>
+    </h1>
+    <p class="hero-desc will-animate">
+      I'm an Aspiring Software Developer, I love to build meaningful and impactful
+      applications. Passionate about learning new technologies and solving real-world
+      problems through clean, thoughtful code.
+    </p>
+    <div class="hero-cta will-animate">
+      <a href="about.html" class="btn btn-primary">View My Work</a>
+      <a href="contact.html" class="btn btn-secondary">Let's Talk</a>
+    </div>
+    <div class="social-row will-animate">
+  <a class="social-pill" aria-label="GitHub" href="https://github.com/anaghapraveen2007" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.46-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.13-4.56-5.03 0-1.11.39-2.02 1.03-2.73-.1-.26-.45-1.29.1-2.69 0 0 .84-.28 2.75 1.05A9.4 9.4 0 0 1 12 7.93c.85 0 1.71.12 2.51.34 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.43.1 2.69.64.71 1.03 1.62 1.03 2.73 0 3.91-2.34 4.77-4.57 5.02.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.19 10.19 0 0 0 22 12.19C22 6.58 17.52 2 12 2z"/></svg>
+  </a>
+  <a class="social-pill" aria-label="LinkedIn" href="https://www.linkedin.com/in/anagha-praveen-b03384242?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-11 6H6v10h2V9zm-1-3a1.13 1.13 0 0 0 0 2.26A1.13 1.13 0 0 0 8 6.13 1.13 1.13 0 0 0 7 5.87zm10 4.29c-1.62 0-2.42.9-2.83 1.53V9h-2v10h2v-5.5c0-1.3.65-2.08 1.77-2.08 1.06 0 1.56.78 1.56 2.08V19h2v-5.49c0-2.64-1.41-3.93-3.5-3.93z"/></svg>
+  </a>
+</div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="home.html" class="nav-btn active" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </a>
+    <a href="about.html" class="nav-btn" aria-label="About">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </a>
+    <a href="contact.html" class="nav-btn" aria-label="Contact">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </a>
+  </nav>
+
+  <script>
+    document.querySelectorAll('.will-animate').forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), 80 + i * 110);
+    });
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    });
+  </script>
+</body>
+</html>
