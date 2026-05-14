@@ -265,7 +265,7 @@
         <input type="email" placeholder="Your Email" />
         <input type="text" placeholder="Enter Subject" />
         <textarea placeholder="Message here..."></textarea>
-        <button class="send-btn">Send Message</button>
+        <button class="send-btn" onclick="window.location.href='index.html'">Send Message</button>
       </div>
     </div>
   </main>
@@ -292,6 +292,8 @@
     document.getElementById('themeToggle').addEventListener('click', () => {
       const html = document.documentElement;
       html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.querySelector('.send-btn).addEventListener('click', function(){
+      window.location.href='index.html';
     });
   </script>
 </body>
