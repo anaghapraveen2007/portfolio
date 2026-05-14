@@ -283,18 +283,18 @@
   </nav>
 
   <script>
-  
-    document.querySelectorAll('.will-animate').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), 80 + i * 110);
-    });
+  document.querySelectorAll('.will-animate').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 80 + i * 110);
+  });
 
-    
-    document.getElementById('themeToggle').addEventListener('click', () => {
-      const html = document.documentElement;
-      html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
-    document.querySelector('.send-btn).addEventListener('click', function(){
-      window.location.href='index.html';
-    });
-  </script>
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+  });                            // ← closing }); was missing here
+
+  document.querySelector('.send-btn').addEventListener('click', function () {
+    window.location.href = 'index.html';
+  });
+</script>
 </body>
 </html>
